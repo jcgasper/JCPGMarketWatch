@@ -1,0 +1,32 @@
+body {
+    background-color: #002D62;
+}
+
+h1 {
+    padding: 3px;
+    margin-left: 12px;
+    margin-right: 15px;
+    color: black;
+}
+
+.JCPG {
+    color: #002D62;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.watch {
+    text-decoration: underline;
+}
+
+.navbar-start {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.section {
+    color: white;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
