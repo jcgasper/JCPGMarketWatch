@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -27,7 +28,7 @@
                 </a>
 
                 <a class="navbar-item" href="./Stocks.html">
-              Stock Charts
+              Stocks
             </a>
 
                 <a class="navbar-item" href="./Crypto.html">
@@ -43,7 +44,7 @@
                         <a class="navbar-item" href="./aboutme.html">
                   About
                 </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="./aboutme.html">
                   Contact Us
                 </a>
                         <hr class="navbar-divider">
@@ -58,21 +59,34 @@
     <section class="section">
         <div class="container pb-6">
             <h2 class="title">
-                About The Team
+                Stocks and CryptoCurrencies
             </h2>
             <p class="subtitle">
-                JCPG MArketWatch <strong>CHeckout our market watch.. stocks vs cryptos!!!!!!!</strong>!
+                Please enter a Stock symbol or a CryptoCurrency to compare the two.
             </p>
         </div>
 
         <div class="columns pt-6">
             <div class="column is-one-third">
-                Stocks
-                <input class="input is-rounded" type="text" placeholder="Select a Stock"><button class="button is-small">Search</button>
+                <h3>Stocks</h3>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter a Stock">
+                    <span class="icon is-small is-right">
+                            <i class="fas fa-search button">
+                            </i>
+                          </span>
+                </div>
             </div>
+
             <div class="column is-one-third">
-                CryptoCurrency
-                <input class="input is-rounded" type="text" placeholder="Select a CryptoCurrency"><button class="button is-small">Search</button>
+                <h3>CryptoCurrency</h3>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter a CryptoCurrency">
+                    <span class="icon is-small is-right">
+                                <i class="fas fa-search button">
+                                </i>
+                        </span>
+                </div>
             </div>
         </div>
     </section>
