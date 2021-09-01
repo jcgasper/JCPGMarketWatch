@@ -58,21 +58,21 @@
 <body>
     <section class="section">
         <div class="container pb-6">
-            <h2 class="title">
+            <h2 class="topHeader">
                 Stocks and CryptoCurrencies
             </h2>
-            <p class="subtitle">
+            <p>
                 Please enter a Stock symbol or a CryptoCurrency to compare the two.
             </p>
         </div>
 
         <div class="columns pt-6">
-            <div class="column is-one-third">
+            <div class="column is-one-third pr-6">
                 <h3>Stocks</h3>
                 <div class="control has-icons-left has-icons-right">
                     <input class="input" type="text" placeholder="Enter a Stock">
                     <span class="icon is-small is-right">
-                            <i class="fas fa-search button">
+                            <i class="fas fa-search" id="button">
                             </i>
                           </span>
                 </div>
@@ -83,7 +83,7 @@
                 <div class="control has-icons-left has-icons-right">
                     <input class="input" type="text" placeholder="Enter a CryptoCurrency">
                     <span class="icon is-small is-right">
-                                <i class="fas fa-search button">
+                                <i class="fas fa-search" id="button">
                                 </i>
                         </span>
                 </div>
@@ -94,10 +94,28 @@
     <section class="section">
         <div class="columns pt-6">
             <div class="column is-one-third">
-                Stock Graph
+                <h4 class="graphs">Stock Graph</h4>
+                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">One Day</a></li>
+                        <li><a href="#">One Week</a></li>
+                        <li><a href="#">One Month</a></li>
+                        <li><a href="#">Three Months</a></li>
+                        <li><a href="#">One Year</a></li>
+                    </ul>
+                </nav>
             </div>
             <div class="column is-one-third">
-                CryptoCurrency
+                <h4 class="graphs">Crypto Graph</h4>
+                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">One Day</a></li>
+                        <li><a href="#">One Week</a></li>
+                        <li><a href="#">One Month</a></li>
+                        <li><a href="#">Three Months</a></li>
+                        <li><a href="#">One Year</a></li>
+                    </ul>
+                </nav>
             </div>
     </section>
 </body>
