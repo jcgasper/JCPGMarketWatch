@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JCPG MARKETWATCH</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
+            </h1>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="./stockticker.html">
+                Home
+                </a>
+
+                <a class="navbar-item" href="./Stocks.html">
+              Stocks
+            </a>
+
+                <a class="navbar-item" href="./Crypto.html">
+                    CryptoCurrency
+                  </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                More
+              </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="./aboutme.html">
+                  About
+                </a>
+                        <a class="navbar-item" href="./aboutme.html">
+                  Contact Us
+                </a>
+                        <hr class="navbar-divider">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container pb-6">
+            <h2 class="topHeader">
+                Stocks and CryptoCurrencies
+            </h2>
+            <p>
+                Please enter a Stock symbol or a CryptoCurrency to compare the two.
+            </p>
+        </div>
+
+        <div class="columns pt-6">
+            <div class="column is-one-third pr-6">
+                <h3>Stocks</h3>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter a Stock">
+                    <span class="icon is-small is-right">
+                            <i class="fas fa-search" id="button">
+                            </i>
+                          </span>
+                </div>
+            </div>
+
+            <div class="column is-one-third">
+                <h3>CryptoCurrency</h3>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter a CryptoCurrency">
+                    <span class="icon is-small is-right">
+                                <i class="fas fa-search" id="button">
+                                </i>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="columns pt-6">
+            <div class="column is-one-third">
+                <h4 class="graphs">Stock Graph</h4>
+                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">One Day</a></li>
+                        <li><a href="#">One Week</a></li>
+                        <li><a href="#">One Month</a></li>
+                        <li><a href="#">Three Months</a></li>
+                        <li><a href="#">One Year</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="column is-one-third">
+                <h4 class="graphs">Crypto Graph</h4>
+                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">One Day</a></li>
+                        <li><a href="#">One Week</a></li>
+                        <li><a href="#">One Month</a></li>
+                        <li><a href="#">Three Months</a></li>
+                        <li><a href="#">One Year</a></li>
+                    </ul>
+                </nav>
+            </div>
+    </section>
+</body>
