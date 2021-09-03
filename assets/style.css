@@ -54,13 +54,15 @@ h1 {
     float: right;
     box-shadow: inset 5px 0 5px -5px gray;
     font-style: italic;
-    color: silver
+    color: green;
+    font-size: 15px;
 }
 
-h4 {
+h5 {
     color: black;
     text-decoration: underline;
     font-style: italic;
     font-weight: bolder;
+    font-size: 25px;
     align-content: center;
 }
