@@ -1,10 +1,9 @@
 body {
     background-color: #002D62;
-    align-content: center;
 }
 
 h1 {
-    padding: 3px;
+    padding: 25px;
     margin-left: 12px;
     margin-right: 15px;
     color: black;
@@ -31,6 +30,10 @@ h1 {
     font-size: 17px;
 }
 
+#navbarBasicExample {
+    padding: 25px
+}
+
 .section {
     color: white;
     font-size: 25px;
@@ -41,4 +44,23 @@ h1 {
     font-size: 15px;
     text-decoration: underline;
     text-align: center;
+    margin-top: 20px;
+}
+
+.watchList {
+    width: 40%;
+    padding-left: 25px;
+    margin-left: 55px;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px gray;
+    font-style: italic;
+    color: silver
+}
+
+h4 {
+    color: black;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bolder;
+    align-content: center;
 }
