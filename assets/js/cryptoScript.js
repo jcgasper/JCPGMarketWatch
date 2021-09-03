@@ -1,5 +1,3 @@
-
-
 function searchCrypto() {
 
     let cryptoSearchText = prompt("Enter cryptocurrency:")
@@ -28,7 +26,6 @@ function searchCrypto() {
         });
 
 }
-
 
 searchCrypto();
 
