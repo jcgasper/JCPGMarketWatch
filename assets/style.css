@@ -15,6 +15,12 @@ h1 {
     background-size: cover;
 }
 
+.cryptobg {
+    background-image: url("./cryptobg.jpg");
+    background-color: #002D62;
+    background-size: cover;
+}
+
 .topHeader {
     color: white;
     font-size: 45px
