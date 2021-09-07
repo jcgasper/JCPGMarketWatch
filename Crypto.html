@@ -62,20 +62,30 @@
                 CryptoCurrency
             </h2>
             <p>
-                JCPG MArketWatch CHeckout our market watch.. stocks vs cryptos!!!!!!!!
+                JCPG MarketWatch Checkout our market watch.. stocks vs cryptos!!!!!!!!
             </p>
         </div>
 
         <div class="column is-one-third py-6">
             <h3>CryptoCurrency</h3>
             <div class="control has-icons-right">
-                <input class="input" type="text" placeholder="Enter a CryptoCurrency" id="cryptoSearch">
+                <input class="input" type="text" placeholder="Enter a CryptoCurrency" id="cryptoSearch" onkeypress="searchCrypto(event)">
                 <span class="icon is-small is-right">
-                                <i class="fas fa-search " id="cryptoSearchBtn">
-                                </i>
-                        </span>
-            </div>
+                    <i class="fas fa-search " id="cryptoSearchBtn">
+                    </i>
+                </span>
+                </div>
         </div>
+
+        <div id="cryptoInfo">
+            <div id="cryptoTitle"></div>
+            <!-- <div id="cryptoName"></div>
+            <div id="cryptoSymbol"></div>
+            <div id="cryptoPrice"></div> -->
+        </div>
+
+
+
         <section class="section">
             <div class="column is-one-third">
                 <h4 class="graphs">Crypto Graph</h4>
