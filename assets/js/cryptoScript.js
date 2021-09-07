@@ -22,10 +22,10 @@ function searchCrypto(key) {
                     response.json().then(function (data) {
                         console.log(data);
 
-                        document.getElementById("cryptoRank").textContent += data.coin.rank;
-                        document.getElementById("cryptoName").textContent += data.coin.name;
-                        document.getElementById("cryptoSymbol").textContent += data.coin.symbol;
-                        document.getElementById("cryptoPrice").textContent += data.coin.price;
+                        document.getElementById("cryptoTitle").textContent = "Rank #" + data.coin.rank + " " + data.coin.name + " " + data.coin.symbol + " " + data.coin.price;
+                        // document.getElementById("cryptoName").textContent = data.coin.name;
+                        // document.getElementById("cryptoSymbol").textContent = data.coin.symbol;
+                        // document.getElementById("cryptoPrice").textContent = data.coin.price;
 
                     });
                 } else {
