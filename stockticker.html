@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -69,53 +68,61 @@
         <div class="columns pt-6">
             <div class="column is-one-third pr-6">
                 <h3>Stocks</h3>
-                <div class="control has-icons-left has-icons-right">
+                <div class="control has-icons-left has-icon-right">
                     <input class="input" type="text" placeholder="Enter a Stock">
-                    <span class="icon is-small is-right">
-                            <i class="fas fa-search" id="button">
-                            </i>
+                    <span class="icon is-small is-left">
+                            <i class="fas fa-search" id="button"></i>
                           </span>
+                    <span class="icon is-small is-right">
+                    <i class="button is-success far fa-eye addWatch"></i>
+                    </span>
+                    <h4 class="graphs">Stock Graph</h4>
+                    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="#">One Day</a></li>
+                            <li><a href="#">One Week</a></li>
+                            <li><a href="#">One Month</a></li>
+                            <li><a href="#">Three Months</a></li>
+                            <li><a href="#">One Year</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-
             <div class="column is-one-third">
                 <h3>CryptoCurrency</h3>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Enter a CryptoCurrency">
-                    <span class="icon is-small is-right">
+                <div class="control has-icons-left">
+                    <p class="control is-expanded">
+                        <input class="input" type="text" placeholder="Enter a CryptoCurrency">
+                        <span class="icon is-small is-left">
                                 <i class="fas fa-search" id="button">
                                 </i>
                         </span>
+                        <span class="icon is-right">
+                                <i class="button is-success far fa-eye addWatch"></i>
+                                </span>
+                        <h4 class="graphs">Crypto Graph</h4>
+                        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                            <ul>
+                                <li><a href="#">One Day</a></li>
+                                <li><a href="#">One Week</a></li>
+                                <li><a href="#">One Month</a></li>
+                                <li><a href="#">Three Months</a></li>
+                                <li><a href="#">One Year</a></li>
+                            </ul>
+                        </nav>
                 </div>
             </div>
+            <div class="box watchList" style="width: 200px;">
+                <h5><i class="far fa-eye"></i> Watchlist</h5>
+                <ul>
+                    <li>place holder</li>
+                    <li>place holder</li>
+                    <li>place holder</li>
+                </ul>
+            </div>
         </div>
+
     </section>
 
-    <section class="section">
-        <div class="columns pt-6">
-            <div class="column is-one-third">
-                <h4 class="graphs">Stock Graph</h4>
-                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="column is-one-third">
-                <h4 class="graphs">Crypto Graph</h4>
-                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
-                    </ul>
-                </nav>
-            </div>
-    </section>
+    <script src="https://kit.fontawesome.com/b4fe2caaa9.js " crossorigin="anonymous "></script>
 </body>
