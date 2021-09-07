@@ -9,6 +9,12 @@ h1 {
     color: black;
 }
 
+.jumbo {
+    background-image: url("./stockmarket.jpg");
+    background-color: #002D62;
+    background-size: cover;
+}
+
 .topHeader {
     color: white;
     font-size: 45px
@@ -66,4 +72,3 @@ h5 {
     font-size: 25px;
     align-content: center;
 }
-
