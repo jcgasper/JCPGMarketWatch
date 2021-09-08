@@ -9,6 +9,24 @@ h1 {
     color: black;
 }
 
+.jumbo {
+    background-image: url("./stockmarket.jpg");
+    background-color: #002D62;
+    background-size: cover;
+}
+
+.cryptobg {
+    background-image: url("./cryptobg.jpg");
+    background-color: #002D62;
+    background-size: cover;
+}
+
+.stockbg {
+    background-image: url("./stock-market.png");
+    background-color: #002D62;
+    background-size: cover;
+}
+
 .topHeader {
     color: white;
     font-size: 45px
@@ -65,7 +83,6 @@ h5 {
     font-weight: bolder;
     font-size: 25px;
     align-content: center;
-}
 
 #about-me-header {
     color: white;
