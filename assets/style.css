@@ -13,6 +13,8 @@ h1 {
     background-image: url("./stockmarket.jpg");
     background-color: #002D62;
     background-size: cover;
+    background-position-y: 30%;
+    height: 325px;
 }
 
 .cryptobg {
