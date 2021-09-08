@@ -67,3 +67,11 @@ h5 {
     align-content: center;
 }
 
+#about-me-header {
+    color: white;
+    position: relative;
+    /* text-align: center;
+    font-size: 3rem; */
+    margin-bottom: 2rem;
+}
+
