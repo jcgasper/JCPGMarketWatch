@@ -83,4 +83,12 @@ h5 {
     font-weight: bolder;
     font-size: 25px;
     align-content: center;
+
+#about-me-header {
+    color: white;
+    position: relative;
+    /* text-align: center;
+    font-size: 3rem; */
+    margin-bottom: 2rem;
 }
+
