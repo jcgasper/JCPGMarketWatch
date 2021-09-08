@@ -55,19 +55,21 @@
 </head>
 
 <body>
+
+    <section class="hero is-medium is-link jumbo">
+        <div class="hero-body">
+        </div>
+    </section>
+
     <section class="section">
         <div class="container pb-6">
-            <h2 class="topHeader">
-                Stocks and CryptoCurrencies
+            <h2 class="topHeader has-text-centered">
+                Compare Stocks and CryptoCurrencies
             </h2>
-            <p>
-                Please enter a Stock symbol or a CryptoCurrency to compare the two.
-            </p>
         </div>
 
         <div class="columns pt-6">
-            <div class="column is-one-third pr-6">
-                <h3>Stocks</h3>
+            <div class="column is-5 pr-6">
                 <div class="control has-icons-left has-icon-right">
                     <input class="input" type="text" placeholder="Enter a Stock">
                     <span class="icon is-small is-left">
@@ -76,7 +78,6 @@
                     <span class="icon is-small is-right">
                     <i class="button is-success far fa-eye addWatch"></i>
                     </span>
-                    <h4 class="graphs">Stock Graph</h4>
                     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
                         <ul>
                             <li><a href="#">One Day</a></li>
@@ -88,8 +89,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="column is-one-third">
-                <h3>CryptoCurrency</h3>
+            <div class="column is-5">
                 <div class="control has-icons-left">
                     <p class="control is-expanded">
                         <input class="input" type="text" placeholder="Enter a CryptoCurrency">
@@ -100,7 +100,6 @@
                         <span class="icon is-right">
                                 <i class="button is-success far fa-eye addWatch"></i>
                                 </span>
-                        <h4 class="graphs">Crypto Graph</h4>
                         <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
                             <ul>
                                 <li><a href="#">One Day</a></li>
@@ -123,6 +122,14 @@
         </div>
 
     </section>
+
+    <footer class="footer" id="bottom">
+        <div class="content has-text-centered">
+            <p>
+                <strong><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span></strong>.
+            </p>
+        </div>
+    </footer>
 
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js " crossorigin="anonymous "></script>
 </body>
