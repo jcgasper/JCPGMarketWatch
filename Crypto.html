@@ -7,6 +7,9 @@
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+
     <link rel="stylesheet" href="./assets/style.css">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -79,9 +82,6 @@
 
         <div id="cryptoInfo">
             <div id="cryptoTitle"></div>
-            <!-- <div id="cryptoName"></div>
-            <div id="cryptoSymbol"></div>
-            <div id="cryptoPrice"></div> -->
         </div>
 
 
@@ -89,20 +89,28 @@
         <section class="section">
             <div class="column is-one-third">
                 <h4 class="graphs">Crypto Graph</h4>
+
                 <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
                     <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
+                        <li><a href="#" id="oneDay">One Day</a></li>
+                        <li><a href="#" id="oneWeek">One Week</a></li>
+                        <li><a href="#" id="oneMonth">One Month</a></li>
+                        <li><a href="#" id="threeMonth">Three Months</a></li>
+                        <li><a href="#" id="oneYear">One Year</a></li>
                     </ul>
                 </nav>
+
+
+
         </section>
 
+        <div class="chartContainer">
+            <canvas id="myChart" width="50" height="50"></canvas>
+        </div>
 
     </section>
 
     <script src="assets/js/cryptoScript.js"></script>
+    
 
 </body>
