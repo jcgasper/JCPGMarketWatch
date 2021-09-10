@@ -10,7 +10,7 @@ h1 {
 }
 
 .jumbo {
-    background-image: url("./stockmarket.jpg");
+    background-image: url("Photos/stockmarket.jpg");
     background-color: #002D62;
     background-size: cover;
     background-position-y: 30%;
@@ -18,13 +18,13 @@ h1 {
 }
 
 .cryptobg {
-    background-image: url("./cryptobg.jpg");
+    background-image: url("Photos/cryptobg.jpg");
     background-color: #002D62;
     background-size: cover;
 }
 
 .stockbg {
-    background-image: url("./stock-market.png");
+    background-image: url("photos/stock-market.png");
     background-color: #002D62;
     background-size: cover;
 }
@@ -53,6 +53,11 @@ h1 {
 #navbarBasicExample {
     padding: 25px
 }
+
+#nav-links {
+    padding: 25px
+}
+
 
 .section {
     color: white;
@@ -85,4 +90,20 @@ h5 {
     font-weight: bolder;
     font-size: 25px;
     align-content: center;
+}
+
+#about-me-header {
+    color: white;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.indent {
+    text-indent: 2em;
+}
+
+.about-hero{
+    background-image: url("Photos/pexels-essow-936722.jpg");
+    background-size: cover;
+    background-color: #002D62;
 }

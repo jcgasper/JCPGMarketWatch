@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JCPG MARKETWATCH</title>
+    <title>About the Team - JCPG MarketWatch</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -16,25 +16,27 @@
                 <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
                 </h1>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+    
+                <a class="navbar-burger" id="burger">
+                    <span ></span>
+                    <span ></span>
+                    <span ></span>
                 </a>
             </div>
+            
+            <div id="nav-links" class="navbar-menu">
 
-            <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                     <a class="navbar-item" href="./stockticker.html">
                         Home
                     </a>
 
                     <a class="navbar-item" href="./Stocks.html">
-                      Stocks
+                        Stocks
                     </a>
 
                     <a class="navbar-item" href="./Crypto.html">
-                            CryptoCurrency
+                        CryptoCurrency
                     </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -57,15 +59,22 @@
         </nav>
     </header>
 
-    <section class="section is-large">
+    <section class="hero is-medium is-link about-hero">
+        <div class="hero-body">
+        </div>
+    </section>
+
+    <section class="section">
         <div class="container pb-6">
-            <h2>
-                About The Team
+            <h2 class="is-size-1-desktop is-size-3-mobile has-text-centered"id ="about-me-header">
+                About the Team
             </h2>
-            <div class="columns is-multineline is-mobile dev-description">
+            <h6 class="column is-one-quarter has-text-centered">Christian Tanicala</h5>
+            <div class="columns is-multineline is-mobile dev-description is-size-6-mobile">
                 <figure class="image column is-one-quarter">
-                    <img class="is-rounded" src="https://media-exp1.licdn.com/dms/image/C4E03AQGpkKpYZD-zZw/profile-displayphoto-shrink_800_800/0/1581999207475?e=1635984000&v=beta&t=5-TEBI0ijw9JK2gSm3aS6YrccJC5kNrGUMXuLpYDUw8">
+                    <img class="is-rounded" src="assets/Photos/Christian-Tanicala.jpg">
                 </figure>
+
                 <p class="column">
                     JCPG MArketWatch <strong>CHeckout our market watch.. stocks vs cryptos!!!!!!yptos!!!!!!!</strong>!
                 </p>
@@ -96,9 +105,18 @@
                 <p class="column">
                     Phon Phongsavath has been working in the Financial Industry for five years as a Client Relationship Consultant for U.S. Bank. He wanted to take his newly found interest of coding/web development and his knowledge of the Financial Industry into a project
                     that would showcase his talents.
+
+                <p class="column is-two-quarter indent">
+                    Christian Tanicala is an Ohio State Univeristy alumn currently working in the Financial Services industry for Morgan Stanley's Wealth Management Department in their Workplace Solutions Group. Christian has always been pasionate about computers and over the years garnered an interest in the world of coding. This is what brought to fruition the idea of trying to create a website that incorporates both of these aspects of Christian's life.
+                    <div>
+                        <figure>
+                            <a href="https://www.linkedin.com/in/christian-t-94a24411a/"><img class="image is-128x128" src="assets/Photos/LinkedIn-Button-300x300.png"></a>
+                        </figure>
+                    </div>
+
                 </p>
             </div>
-
+            
         </div>
     </section>
 
@@ -109,4 +127,5 @@
             </p>
         </div>
     </footer>
+<script src="assets/js/navbar.js"></script>
 </body>
