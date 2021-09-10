@@ -8,54 +8,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
-
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
-            </h1>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="./stockticker.html">
-                    Home
-                    </a>
-
-                <a class="navbar-item" href="./Stocks.html">
-                  Stocks
-                </a>
-
-                <a class="navbar-item" href="./Crypto.html">
-                        CryptoCurrency
-                      </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                    More
-                  </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="./aboutme.html">
-                      About
-                    </a>
-                        <a class="navbar-item">
-                      Contact Us
-                    </a>
-                        <hr class="navbar-divider">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 </head>
 
 <body>
+    
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
+                </h1>
+    
+                <a class="navbar-burger" id="burger">
+                    <span ></span>
+                    <span ></span>
+                    <span ></span>
+                </a>
+            </div>
+            
+            <div id="nav-links" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./stockticker.html">
+                        Home
+                    </a>
+    
+                    <a class="navbar-item" href="./Stocks.html">
+                        Stocks
+                    </a>
+    
+                    <a class="navbar-item" href="./Crypto.html">
+                        CryptoCurrency
+                    </a>
+    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                         More
+                        </a>
+    
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="./aboutme.html">
+                             About
+                            </a>
+                            <a class="navbar-item">
+                             Contact Us
+                            </a>
+                            <hr class="navbar-divider">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <section class="section cryptobg">
         <div class="container pb-6">
             <h2 class="topHeader has-text-centered">
@@ -99,5 +102,5 @@
 
 
     <script src="assets/js/cryptoScript.js"></script>
-
+    <script src="assets/js/navbar.js"></script>
 </body>
