@@ -1,5 +1,15 @@
 let cryptoSearchText;
+
 let chartPeriod;
+
+let cryptoChart;
+
+// let crypto24hPrice = [];
+// let crypto1wPrice = [];
+// let crypto1mPrice = [];
+// let crypto3mPrice = [];
+// let crypto1yPrice = [];
+
 
 let requestOptions = {
     method: 'GET',
@@ -11,8 +21,6 @@ let oneWeekEl = document.getElementById("oneWeek");
 let oneMonthEl = document.getElementById("oneMonth");
 let threeMonthEl = document.getElementById("threeMonth");
 let oneYearEl = document.getElementById("oneYear");
-
-let cryptoChart;
 
 function searchCrypto(key) {
 
@@ -27,8 +35,9 @@ function searchCrypto(key) {
                     response.json().then(function (data) {
                         console.log(data);
 
-                        let shortenedPrice = data.coin.price.toFixed(2);
+                        clearChart();
 
+                        let shortenedPrice = data.coin.price.toFixed(2);
                         document.getElementById("cryptoTitle").textContent = "Rank #" + data.coin.rank + " " + data.coin.name + " " + data.coin.symbol + " $" + shortenedPrice;
 
                     });
@@ -47,94 +56,49 @@ function searchCrypto(key) {
 
 
 
-
-
-
-
-    //     type: 'bar',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
-
-
-
-function generateChart() {
-    fetch("https://api.coinstats.app/public/v1/charts?period=" + chartPeriod + "&coinId=" + cryptoSearchText, requestOptions)
+function setTimeFrame() {
+    fetch("https://api.coinstats.app/public/v1/charts?period="+ chartPeriod + "&coinId=" + cryptoSearchText, requestOptions)
     .then(function (response) {
         if (response.ok) {
             // console.log(response);
             response.json().then(function (data) {
                 console.log(data);
 
-                let myChart = document.getElementById('myChart').getContext("2d");
+                crypto24hPrice = [];
+                crypto1wPrice = [];
+                crypto1mPrice = [];
+                crypto3mPrice = [];
+                crypto1yPrice = [];
 
-                // Chart.defaults.global.defaultFontFamily = "Lato";
-                // Chart.defaults.global.defaultFontSize = 18;
-                // Chart.defaults.global.defaultFontColor = "#777";
-
-                let cryptoChart = new Chart(myChart, {
-                    type: "line", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
-                    data: {
-                        labels: data.chart,
-                        datasets: [{
-                            label: "Price",
-                            data: data.chart,
-                            // backgroundColor: "green"
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderWidth: 1,
-                            borderColor: "#777",
-                            hoverBorderWidth: 3,
-                            hoverBorderColor: "#000"
-                        }]
-                    },
-                    options: {
-                        title: {
-                            display: true,
-                            text: "Crypto",
-                            fontSize: 25
-                        },
-                        legend: {
-                            position: "right"
-                        }
+                if (chartPeriod === "24h") {
+                    for (i = 0; i < data.chart.length; i++) {
+                        crypto24hPrice.push(data.chart[i][1]);
                     }
-                });
-                console.log('cryptoChart', cryptoChart);
+                    cryptoTimeFrame = crypto24hPrice;
+                } else if (chartPeriod === "1w") {
+                    for (i = 0; i < data.chart.length; i++) {
+                        crypto1wPrice.push(data.chart[i][1]);
+                    }
+                    cryptoTimeFrame = crypto1wPrice;
+                } else if (chartPeriod === "1m") {
+                    for (i = 0; i < data.chart.length; i++) {
+                        crypto1mPrice.push(data.chart[i][1]);
+                    }
+                    cryptoTimeFrame = crypto1mPrice;
+                } else if (chartPeriod === "3m") {
+                    for (i = 0; i < data.chart.length; i++) {
+                        crypto3mPrice.push(data.chart[i][1]);
+                    }
+                    cryptoTimeFrame = crypto3mPrice;
+                } else if (chartPeriod === "1y") {
+                    for (i = 0; i < data.chart.length; i++) {
+                        crypto1yPrice.push(data.chart[i][1]);
+                    }
+                    cryptoTimeFrame = crypto1yPrice;
+                }
+               
+                generateChart(cryptoTimeFrame)
+
             });
         } else {
             console.log('response', response);
@@ -147,24 +111,67 @@ function generateChart() {
     });
 }
 
+function generateChart(chart){
+
+    clearChart();
+
+    let myChart = document.getElementById('myChart').getContext("2d");
+
+    let cryptoChart = new Chart(myChart, {
+        type: "line", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: chart,
+            datasets: [{
+                label: "Price",
+                data: chart,
+                backgroundColor: "green",
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderWidth: 1,
+                borderColor: "#777",
+                hoverBorderWidth: 3,
+                hoverBorderColor: "#000"
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+        }
+    });
+    console.log('cryptoChart', cryptoChart);
+}
+
+function clearChart(){
+    let containerEl = document.getElementById("chartContainer");
+    let chartEl = document.getElementById("myChart");
+    let createChart = document.createElement("canvas");
+    chartEl.parentNode.removeChild(chartEl);
+    containerEl.appendChild(createChart);
+    createChart.id = "myChart";
+}
+
 oneDayEl.addEventListener("click", function setOneDayChart() {
     chartPeriod = "24h";
-    generateChart();
+    setTimeFrame();
 })
 oneWeekEl.addEventListener("click", function setOneWeekChart() {
     chartPeriod = "1w";
-    cryptoChart.destroy();
-    generateChart();
+    setTimeFrame();
 })
 oneMonthEl.addEventListener("click", function setOneMonthChart() {
     chartPeriod = "1m";
-    generateChart();
+    setTimeFrame();
 })
 threeMonthEl.addEventListener("click", function setThreeMonthChart() {
     chartPeriod = "3m";
-    generateChart();
+    setTimeFrame();
 })
 oneYearEl.addEventListener("click", function setOneYearChart() {
     chartPeriod = "1y";
-    generateChart();
+    setTimeFrame();
 })

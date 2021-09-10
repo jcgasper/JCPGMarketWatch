@@ -1,0 +1,10 @@
+.chartStyle {
+    background-color: white;
+    padding: 25px;
+    margin: 25px;
+}
+
+#chartContainer {
+    width: 900px;
+    height: 600px;
+}
