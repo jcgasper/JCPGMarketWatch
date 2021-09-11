@@ -31,7 +31,7 @@ function searchCrypto(key) {
         fetch("https://api.coinstats.app/public/v1/coins/" + cryptoSearchText + "?currency=USD", requestOptions)
             .then(function (response) {
                 if (response.ok) {
-                    // console.log(response);
+                    console.log(response);
                     response.json().then(function (data) {
                         console.log(data);
 
@@ -57,10 +57,12 @@ function searchCrypto(key) {
 
 
 function setTimeFrame() {
+    console.log(chartPeriod, cryptoSearchText);
     fetch("https://api.coinstats.app/public/v1/charts?period="+ chartPeriod + "&coinId=" + cryptoSearchText, requestOptions)
     .then(function (response) {
         if (response.ok) {
-            // console.log(response);
+            console.log("*********")
+            console.log(response);
             response.json().then(function (data) {
                 console.log(data);
 
@@ -106,7 +108,7 @@ function setTimeFrame() {
 
         }
     })
-    .catch(function (error) {
+    .catch (function(error) {
         alert('Unable to connect');
     });
 }
@@ -154,23 +156,28 @@ function clearChart(){
     createChart.id = "myChart";
 }
 
-oneDayEl.addEventListener("click", function setOneDayChart() {
+oneDayEl.addEventListener("click", function (event){
+    event.preventDefault()
     chartPeriod = "24h";
     setTimeFrame();
 })
-oneWeekEl.addEventListener("click", function setOneWeekChart() {
+oneWeekEl.addEventListener("click", function (event){
+    event.preventDefault()
     chartPeriod = "1w";
     setTimeFrame();
 })
-oneMonthEl.addEventListener("click", function setOneMonthChart() {
+oneMonthEl.addEventListener("click", function (event){
+    event.preventDefault()
     chartPeriod = "1m";
     setTimeFrame();
 })
-threeMonthEl.addEventListener("click", function setThreeMonthChart() {
+threeMonthEl.addEventListener("click", function (event){
+    event.preventDefault()
     chartPeriod = "3m";
     setTimeFrame();
 })
-oneYearEl.addEventListener("click", function setOneYearChart() {
+oneYearEl.addEventListener("click", function (event){
+    event.preventDefault()
     chartPeriod = "1y";
     setTimeFrame();
 })

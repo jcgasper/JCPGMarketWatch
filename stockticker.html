@@ -6,116 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
+</head>
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
-            </h1>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="./stockticker.html">
-                Home
+<body>
+
+
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1><span class="JCPG">JCPG</span><strong>Market<span class="watch">Watch</span></strong>
+                </h1>
+
+                <a class="navbar-burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </a>
+            </div>
 
-                <a class="navbar-item" href="./Stocks.html">
-              Stocks
-            </a>
+            <div id="nav-links" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./stockticker.html">
+                        Home
+                    </a>
 
-                <a class="navbar-item" href="./Crypto.html">
-                    CryptoCurrency
-                  </a>
+                    <a class="navbar-item" href="./Stocks.html">
+                        Stocks
+                    </a>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                More
-              </a>
+                    <a class="navbar-item" href="./Crypto.html">
+                        CryptoCurrency
+                    </a>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="./aboutme.html">
-                  About
-                </a>
-                        <a class="navbar-item" href="./aboutme.html">
-                  Contact Us
-                </a>
-                        <hr class="navbar-divider">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                         More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="./aboutme.html">
+                             About
+                            </a>
+                            <a class="navbar-item">
+                             Contact Us
+                            </a>
+                            <hr class="navbar-divider">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</head>
+        </nav>
+    </header>
 
-<body>
+    <section class="hero is-medium is-link jumbo">
+        <div class="hero-body">
+        </div>
+    </section>
+
     <section class="section">
         <div class="container pb-6">
-            <h2 class="topHeader">
-                Stocks and CryptoCurrencies
+            <h2 class="topHeader has-text-centered">
+                Compare Stocks and CryptoCurrencies
             </h2>
-            <p>
-                Please enter a Stock symbol or a CryptoCurrency to compare the two.
-            </p>
         </div>
 
         <div class="columns pt-6">
-            <div class="column is-one-third pr-6">
-                <h3>Stocks</h3>
-                <div class="control has-icons-left has-icons-right">
+            <div class="column is-half pr-6">
+                <div class="control is-half has-icons-left has-icon-right">
                     <input class="input" type="text" placeholder="Enter a Stock">
-                    <span class="icon is-small is-right">
-                            <i class="fas fa-search" id="button">
-                            </i>
+                    <span class="icon is-small is-left">
+                            <i class="fas fa-search" id="button"></i>
                           </span>
+                    <span class="icon is-small is-right">
+                    <i class="button is-success far fa-eye addWatch"></i>
+                    </span>
+                    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="" class="has-text-white">One Day</a></li>
+                            <li><a href="" class="has-text-white">One Week</a></li>
+                            <li><a href="" class="has-text-white">One Month</a></li>
+                            <li><a href="" class="has-text-white">Three Months</a></li>
+                            <li><a href="" class="has-text-white">One Year</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-
-            <div class="column is-one-third">
-                <h3>CryptoCurrency</h3>
-                <div class="control has-icons-left has-icons-right">
+            <div class="column is-half pr-6">
+                <div class="control has-icons-left">
                     <input class="input" type="text" placeholder="Enter a CryptoCurrency">
-                    <span class="icon is-small is-right">
+                    <span class="icon is-small is-left">
                                 <i class="fas fa-search" id="button">
                                 </i>
                         </span>
+                    <span class="icon is-right">
+                                <i class="button is-success far fa-eye addWatch"></i>
+                                </span>
+                    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="" class="has-text-white">One Day</a></li>
+                            <li><a href="" class="has-text-white">One Week</a></li>
+                            <li><a href="" class="has-text-white">One Month</a></li>
+                            <li><a href="" class="has-text-white">Three Months</a></li>
+                            <li><a href="" class="has-text-white">One Year</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
+
         </div>
+
     </section>
 
-    <section class="section">
-        <div class="columns pt-6">
-            <div class="column is-one-third">
-                <h4 class="graphs">Stock Graph</h4>
-                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="column is-one-third">
-                <h4 class="graphs">Crypto Graph</h4>
-                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
-                    </ul>
-                </nav>
-            </div>
-    </section>
+    <footer class="footer" id="bottom">
+        <div class="content has-text-centered">
+            <p>
+                <strong><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span></strong>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/b4fe2caaa9.js " crossorigin="anonymous "></script>
+    <script src="assets/js/navbar.js"></script>
+
 </body>
