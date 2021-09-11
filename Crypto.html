@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/cryptoStyle.css">
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
@@ -71,11 +73,17 @@
 
         <div class="column is-half is-offset-one-quarter py-6">
             <div class="control has-icons-right">
-                <input class="input" type="text" placeholder="Search by name" id="cryptoSearch">
+                <input class="input" type="text" placeholder="Search by name" id="cryptoSearch" onkeypress="searchCrypto(event)">
                 <span class="icon is-small is-right">
                     <i class="fas fa-search " id="cryptoSearchBtn"></i>
                 </span>
             </div>
+        </div>
+
+        <div class="column is-one-third" id='cryptoInfo'>
+        
+            <div id="cryptoTitle"></div>
+        
         </div>
 
         <section class="section is-mobile">
@@ -83,17 +91,21 @@
                 <div class="graphs"></div>
                 <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
                     <ul>
-                        <li><a href="" class="has-text-white">One Day</a></li>
-                        <li><a href="" class="has-text-white">One Week</a></li>
-                        <li><a href="" class="has-text-white">One Month</a></li>
-                        <li><a href="" class="has-text-white">Three Months</a></li>
-                        <li><a href="" class="has-text-white">One Year</a></li>
+                        <li><a href="" class="has-text-white" id="oneDay">One Day</a></li>
+                        <li><a href="" class="has-text-white" id="oneWeek">One Week</a></li>
+                        <li><a href="" class="has-text-white" id="oneMonth">One Month</a></li>
+                        <li><a href="" class="has-text-white" id="threeMonth">Three Months</a></li>
+                        <li><a href="" class="has-text-white" id="oneYear">One Year</a></li>
                     </ul>
                 </nav>
         </section>
 
 
     </section>
+
+    <div class="column is-mobile chartStyle" id="chartContainer">
+        <canvas id="myChart"></canvas>
+    </div>
 
     <footer class="footer is-mobile" id="bottom">
         <div class="content has-text-centered">
