@@ -143,7 +143,6 @@ function generateChart(chart){
             maintainAspectRatio: false,
         }
     });
-    console.log('cryptoChart', cryptoChart);
 }
 
 function clearChart(){
