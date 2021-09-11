@@ -3,10 +3,30 @@ body {
 }
 
 h1 {
-    padding: 3px;
+    padding: 25px;
     margin-left: 12px;
     margin-right: 15px;
     color: black;
+}
+
+.jumbo {
+    background-image: url("Photos/stockmarket.jpg");
+    background-color: #002D62;
+    background-size: cover;
+    background-position-y: 30%;
+    height: 325px;
+}
+
+.cryptobg {
+    background-image: url("Photos/cryptobg.jpg");
+    background-color: #002D62;
+    background-size: cover;
+}
+
+.stockbg {
+    background-image: url("photos/stock-market.png");
+    background-color: #002D62;
+    background-size: cover;
 }
 
 .topHeader {
@@ -30,6 +50,15 @@ h1 {
     font-size: 17px;
 }
 
+#navbarBasicExample {
+    padding: 25px
+}
+
+#nav-links {
+    padding: 25px
+}
+
+
 .section {
     color: white;
     font-size: 25px;
@@ -40,14 +69,41 @@ h1 {
     font-size: 15px;
     text-decoration: underline;
     text-align: center;
+    margin-top: 20px;
 }
 
-.breadcrumb {
-    text-align: center;
+.watchList {
+    width: 40%;
+    padding-left: 25px;
+    margin-left: 55px;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px gray;
+    font-style: italic;
+    color: green;
+    font-size: 15px;
 }
 
-.dev-description {
-    display: block;
+h5 {
+    color: black;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 25px;
+    align-content: center;
 }
 
+#about-me-header {
+    color: white;
+    position: relative;
+    margin-bottom: 2rem;
+}
 
+.indent {
+    text-indent: 2em;
+}
+
+.about-hero{
+    background-image: url("Photos/pexels-essow-936722.jpg");
+    background-size: cover;
+    background-color: #002D62;
+}

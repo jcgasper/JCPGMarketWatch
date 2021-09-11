@@ -8,94 +8,86 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
-
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span>
-            </h1>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="./stockticker.html">
-                    Home
-                    </a>
-
-                <a class="navbar-item" href="./Stocks.html">
-                  Stocks
-                </a>
-
-                <a class="navbar-item" href="./Crypto.html">
-                        CryptoCurrency
-                      </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                    More
-                  </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="./aboutme.html">
-                      About
-                    </a>
-                        <a class="navbar-item">
-                      Contact Us
-                    </a>
-                        <hr class="navbar-divider">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 </head>
 
 <body>
-    <section class="section">
-        <div class="container pb-6">
-            <h2 class="topHeader">
-                CryptoCurrency
-            </h2>
-            <p>
-                JCPG MarketWatch Checkout our market watch.. stocks vs cryptos!!!!!!!!
-            </p>
-        </div>
 
-        <div class="column is-one-third py-6">
-            <h3>CryptoCurrency</h3>
-            <div class="control has-icons-right">
-                <input class="input" type="text" placeholder="Enter a CryptoCurrency" id="cryptoSearch" onkeypress="searchCrypto(event)">
-                <span class="icon is-small is-right">
-                    <i class="fas fa-search " id="cryptoSearchBtn">
-                    </i>
-                </span>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1><span class="JCPG">JCPG</span><strong>Market<span class="watch">Watch</span></strong>
+                </h1>
+
+                <a class="navbar-burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </a>
+            </div>
+
+            <div id="nav-links" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./stockticker.html">
+                        Home
+                    </a>
+
+                    <a class="navbar-item" href="./Stocks.html">
+                        Stocks
+                    </a>
+
+                    <a class="navbar-item" href="./Crypto.html">
+                        CryptoCurrency
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                         More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="./aboutme.html">
+                             About
+                            </a>
+                            <a class="navbar-item">
+                             Contact Us
+                            </a>
+                            <hr class="navbar-divider">
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <section class="section cryptobg">
+        <div class="container pb-6">
+            <h2 class="topHeader has-text-centered">
+                Explore cryptocurrencies.
+            </h2>
         </div>
 
-        <div id="cryptoInfo">
-            <div id="cryptoTitle"></div>
-            <!-- <div id="cryptoName"></div>
-            <div id="cryptoSymbol"></div>
-            <div id="cryptoPrice"></div> -->
+        <div class="column is-half is-offset-one-quarter py-6">
+            <div class="control has-icons-right">
+                <input class="input" type="text" placeholder="Search by name" id="cryptoSearch">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-search " id="cryptoSearchBtn"></i>
+                </span>
+            </div>
         </div>
 
-
-
-        <section class="section">
-            <div class="column is-one-third">
-                <h4 class="graphs">Crypto Graph</h4>
-                <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <section class="section is-mobile">
+            <div class="column is-half is-offset-one-quarter pt-6">
+                <div class="graphs"></div>
+                <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
                     <ul>
-                        <li><a href="#">One Day</a></li>
-                        <li><a href="#">One Week</a></li>
-                        <li><a href="#">One Month</a></li>
-                        <li><a href="#">Three Months</a></li>
-                        <li><a href="#">One Year</a></li>
+                        <li><a href="" class="has-text-white">One Day</a></li>
+                        <li><a href="" class="has-text-white">One Week</a></li>
+                        <li><a href="" class="has-text-white">One Month</a></li>
+                        <li><a href="" class="has-text-white">Three Months</a></li>
+                        <li><a href="" class="has-text-white">One Year</a></li>
                     </ul>
                 </nav>
         </section>
@@ -103,6 +95,16 @@
 
     </section>
 
+    <footer class="footer is-mobile" id="bottom">
+        <div class="content has-text-centered">
+            <p>
+                <strong><span class="JCPG">JCPG</span>Market<span class="watch">Watch</span></strong>.
+            </p>
+        </div>
+    </footer>
+
+
     <script src="assets/js/cryptoScript.js"></script>
+    <script src="assets/js/navbar.js"></script>
 
 </body>
