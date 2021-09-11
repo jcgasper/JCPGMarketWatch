@@ -7,6 +7,7 @@
     <title>JCPG MARKETWATCH</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/b4fe2caaa9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <link rel="stylesheet" href="./assets/style.css">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -45,7 +46,7 @@
                       About
                     </a>
                         <a class="navbar-item">
-                      Contact Us
+                      Contact Us 
                     </a>
                         <hr class="navbar-divider">
                     </div>
@@ -69,13 +70,21 @@
         <div class="column is-one-third py-6">
             <h3>Stocks</h3>
             <div class="control has-icons-right">
+                <form class ="form">
                 <input class="input" type="text" placeholder="Enter a Stock">
                 <span class="icon is-small is-right">
                                     <i class="fas fa-search">
                                     </i>
                             </span>
+                        </form>
             </div>
         </div>
+        
+        <div class="stockInfo">
+            <div class="stockTitle"></div>
+        </div>
+
+        
         <section class="section">
             <div class="columns pt-6">
                 <div class="column is-one-third">
@@ -91,5 +100,12 @@
                     </nav>
         </section>
 
+        <div class="chartStyle" id="chartContainer">
+            <canvas id="myChart"></canvas>
+        </div>
+
     </section>
+    <script src="./assets/stock.js"></script>
 </body>
+
+</htmlR
