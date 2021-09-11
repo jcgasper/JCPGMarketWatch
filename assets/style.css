@@ -9,6 +9,10 @@ h1 {
     color: black;
 }
 
+p {
+    text-indent: 50px;
+}
+
 .jumbo {
     background-image: url("Photos/stockmarket.jpg");
     background-color: #002D62;
@@ -58,7 +62,6 @@ h1 {
     padding: 25px
 }
 
-
 .section {
     color: white;
     font-size: 25px;
@@ -102,7 +105,7 @@ h5 {
     text-indent: 2em;
 }
 
-.about-hero{
+.about-hero {
     background-image: url("Photos/pexels-essow-936722.jpg");
     background-size: cover;
     background-color: #002D62;
