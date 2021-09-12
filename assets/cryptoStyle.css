@@ -1,0 +1,13 @@
+.chartStyle {
+    background-color: white;
+    padding: 25px;
+    margin: 25px;
+}
+
+#chartContainer {
+    height: 600px;
+}
+
+#cryptoInfo {
+    text-align: center;
+}

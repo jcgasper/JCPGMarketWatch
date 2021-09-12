@@ -221,13 +221,14 @@ function getDateRange(chartPeriod) {
 
   else if (chartPeriod == "1w") {
     fullYear = date.getFullYear();
+    
     month = date.getMonth() + 1;
     let preDay;
     if (month<10) {
       month = "0"+month;
     }
     day = date.getDate();
-    preDay = day-7;
+    preDay = date.getDate()-7;
 
     if (day<10) {
       day = "0"+day;
