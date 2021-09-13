@@ -138,7 +138,44 @@ function generateChart(chart){
           maintainAspectRatio: false,
       }
   });
+  generateGains(chart, chartPeriod);
+
 }
+
+function generateGains(chart, chartPeriod) {
+  if (chartPeriod === "24h"){
+      document.getElementById("gainsTimeFrame").textContent = "One Day: ";
+  } else if (chartPeriod === "1w") {
+      document.getElementById("gainsTimeFrame").textContent = "One Week: ";
+  } else if (chartPeriod === "1m") {
+      document.getElementById("gainsTimeFrame").textContent = "One Month: ";
+  } else if (chartPeriod === "3m") {
+      document.getElementById("gainsTimeFrame").textContent = "Three Months: ";
+  } else if (chartPeriod === "1y") {
+      document.getElementById("gainsTimeFrame").textContent = "One Year: ";
+  }
+
+  let gains = chart[chart.length - 1] / chart[0];
+  console.log(gains);
+  gains = (gains * 100) - 100;
+  let shortenedGains = gains.toFixed(2);
+
+  if (shortenedGains >= 0){
+      document.getElementById("cryptoGains").textContent = "+" + shortenedGains + "%";
+      document.getElementById("cryptoGains").classList.remove("increase")
+      document.getElementById("cryptoGains").classList.remove("decrease")
+      document.getElementById("cryptoGains").classList.add("increase")
+  } else {
+      document.getElementById("cryptoGains").textContent = shortenedGains + "%";
+      document.getElementById("cryptoGains").classList.remove("increase")
+      document.getElementById("cryptoGains").classList.remove("decrease")
+      document.getElementById("cryptoGains").classList.add("decrease")
+  }
+  
+}
+
+
+
 
 function clearChart(){
   let containerEl = document.getElementById("chartContainer");
