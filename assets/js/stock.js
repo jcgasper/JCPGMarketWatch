@@ -255,7 +255,7 @@ function getDateRange(chartPeriod) {
     console.log(dateFrom + "/" + dateTo)
   
   }
-
+  
   else if (chartPeriod == "24h") {
     fullYear = date.getFullYear();
     month = date.getMonth() + 1;

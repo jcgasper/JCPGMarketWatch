@@ -1,15 +1,6 @@
 let cryptoSearchText;
-
 let chartPeriod;
-
 let cryptoChart;
-
-// let crypto24hPrice = [];
-// let crypto1wPrice = [];
-// let crypto1mPrice = [];
-// let crypto3mPrice = [];
-// let crypto1yPrice = [];
-
 
 let requestOptions = {
     method: 'GET',
@@ -27,6 +18,7 @@ function searchCrypto(key) {
     if (key.keyCode == 13) {
 
         cryptoSearchText = document.getElementById("cryptoSearch").value;
+        cryptoSearchText = cryptoSearchText.toLowerCase();
 
         fetch("https://api.coinstats.app/public/v1/coins/" + cryptoSearchText + "?currency=USD", requestOptions)
             .then(function (response) {
@@ -38,7 +30,30 @@ function searchCrypto(key) {
                         clearChart();
 
                         let shortenedPrice = data.coin.price.toFixed(2);
-                        document.getElementById("cryptoTitle").textContent = "Rank #" + data.coin.rank + " " + data.coin.name + " " + data.coin.symbol + " $" + shortenedPrice;
+
+                        document.getElementById("cryptoInfo").classList.add("show", "card")
+
+                        let imgContEl = document.getElementById("iconContainer");
+                        let imgEl = document.getElementById("icon");
+                        let createImg = document.createElement("img");
+                        imgEl.parentNode.removeChild(imgEl);
+                        imgContEl.appendChild(createImg);
+                        createImg.id = "icon"
+                        createImg.src = data.coin.icon;
+
+                        document.getElementById("cryptoTitle").textContent = data.coin.name + " [" + data.coin.symbol + "]";
+
+                        document.getElementById("cryptoPrice").textContent ="$" + shortenedPrice;
+
+                        let siteContEl = document.getElementById("siteContainer");
+                        let siteEl = document.getElementById("site");
+                        let createSite = document.createElement("a");
+                        siteEl.parentNode.removeChild(siteEl);
+                        siteContEl.appendChild(createSite);
+                        createSite.id = "site"
+                        createSite.href = data.coin.websiteUrl;
+                        createSite.target = "_blank"
+                        document.getElementById("site").textContent = data.coin.websiteUrl;
 
                     });
                 } else {
@@ -76,30 +91,30 @@ function setTimeFrame() {
                     for (i = 0; i < data.chart.length; i++) {
                         crypto24hPrice.push(data.chart[i][1]);
                     }
-                    cryptoTimeFrame = crypto24hPrice;
+                    chart = crypto24hPrice;
                 } else if (chartPeriod === "1w") {
                     for (i = 0; i < data.chart.length; i++) {
                         crypto1wPrice.push(data.chart[i][1]);
                     }
-                    cryptoTimeFrame = crypto1wPrice;
+                    chart = crypto1wPrice;
                 } else if (chartPeriod === "1m") {
                     for (i = 0; i < data.chart.length; i++) {
                         crypto1mPrice.push(data.chart[i][1]);
                     }
-                    cryptoTimeFrame = crypto1mPrice;
+                    chart = crypto1mPrice;
                 } else if (chartPeriod === "3m") {
                     for (i = 0; i < data.chart.length; i++) {
                         crypto3mPrice.push(data.chart[i][1]);
                     }
-                    cryptoTimeFrame = crypto3mPrice;
+                    chart = crypto3mPrice;
                 } else if (chartPeriod === "1y") {
                     for (i = 0; i < data.chart.length; i++) {
                         crypto1yPrice.push(data.chart[i][1]);
                     }
-                    cryptoTimeFrame = crypto1yPrice;
+                    chart = crypto1yPrice;
                 }
                
-                generateChart(cryptoTimeFrame)
+                generateChart(chart, chartPeriod)
 
             });
         } else {
@@ -113,9 +128,11 @@ function setTimeFrame() {
     });
 }
 
-function generateChart(chart){
+function generateChart(chart, chartPeriod){
 
     clearChart();
+
+    document.getElementById("gainsContainer").classList.add("show");
 
     let myChart = document.getElementById('myChart').getContext("2d");
 
@@ -145,6 +162,41 @@ function generateChart(chart){
             maintainAspectRatio: false,
         }
     });
+
+    generateGains(chart, chartPeriod);
+
+}
+
+function generateGains(chart, chartPeriod) {
+    if (chartPeriod === "24h"){
+        document.getElementById("gainsTimeFrame").textContent = "One Day: ";
+    } else if (chartPeriod === "1w") {
+        document.getElementById("gainsTimeFrame").textContent = "One Week: ";
+    } else if (chartPeriod === "1m") {
+        document.getElementById("gainsTimeFrame").textContent = "One Month: ";
+    } else if (chartPeriod === "3m") {
+        document.getElementById("gainsTimeFrame").textContent = "Three Months: ";
+    } else if (chartPeriod === "1y") {
+        document.getElementById("gainsTimeFrame").textContent = "One Year: ";
+    }
+
+    let gains = chart[chart.length - 1] / chart[0];
+    console.log(gains);
+    gains = (gains * 100) - 100;
+    let shortenedGains = gains.toFixed(2);
+
+    if (shortenedGains >= 0){
+        document.getElementById("cryptoGains").textContent = "+" + shortenedGains + "%";
+        document.getElementById("cryptoGains").classList.remove("increase")
+        document.getElementById("cryptoGains").classList.remove("decrease")
+        document.getElementById("cryptoGains").classList.add("increase")
+    } else {
+        document.getElementById("cryptoGains").textContent = shortenedGains + "%";
+        document.getElementById("cryptoGains").classList.remove("increase")
+        document.getElementById("cryptoGains").classList.remove("decrease")
+        document.getElementById("cryptoGains").classList.add("decrease")
+    }
+    
 }
 
 function clearChart(){
@@ -154,6 +206,12 @@ function clearChart(){
     chartEl.parentNode.removeChild(chartEl);
     containerEl.appendChild(createChart);
     createChart.id = "myChart";
+
+    document.getElementById("gainsContainer").classList.remove("show");
+    document.getElementById("gainsTimeFrame").textContent = "";
+    document.getElementById("cryptoGains").textContent = "";
+    document.getElementById("cryptoGains").classList.remove("increase")
+    document.getElementById("cryptoGains").classList.remove("decrease")
 }
 
 oneDayEl.addEventListener("click", function (event){
