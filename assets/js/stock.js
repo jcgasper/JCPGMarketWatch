@@ -31,6 +31,7 @@ let dateTo;
       let input = submitElement.value;
       stockTicker = submitElement.value;
       
+      localStorage.setItem("input",stockTicker)
 
       fetch('https://api.marketstack.com/v1/tickers?access_key='+apiKey+'&symbols='+input+'', {
     // The browser fetches the resource from the remote server without first looking in the cache.
@@ -371,7 +372,78 @@ function setTimeFrame() {
 }
 
 
+function init() {
+      if (localStorage.getItem("input") != null) {
+        console.log(localStorage.getItem("input"));
+      stockTicker = localStorage.getItem("input");
+        input = stockTicker;
+      fetch('https://api.marketstack.com/v1/tickers?access_key='+apiKey+'&symbols='+input+'', {
+        // The browser fetches the resource from the remote server without first looking in the cache.
+        // The browser will then update the cache with the downloaded resource.
+        cache: 'reload',
+      })
+    
+      .then(function (response) {
+        if (response.ok) {
+            //console.log(response);
+            response.json().then(function (data) {
+                console.log(data);
+                
+                
+                stockTitleEl.textContent = data.data[0].name;
+            
+              
+              });
+        
+        
+          } else {
+            console.log('response', response);
+            alert('Error: ' + response.statusText);
+    
+        }
+    })
+    .catch(function (error) {
+        alert(error + ' Unable to connect');
+    });
+    
+        
+      
+    
+    
+    fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+'', {
+        // The browser fetches the resource from the remote server without first looking in the cache.
+        // The browser will then update the cache with the downloaded resource.
+        cache: 'reload',
+      })
+    
+      .then(function (response) {
+        if (response.ok) {
+            
+            response.json().then(function (data) {
+                console.log(data);
+                console.log(data.data[0].adj_close);
+                
+                stockTitleEl.textContent = stockTitleEl.textContent + " $" + data.data[0].adj_close;
+            
+              
+              });
+        
+        
+          } else {
+            
+            alert('Error: ' + response.statusText);
+    
+        }
+    })
+    .catch(function (error) {
+        alert(error + ' Unable to connect');
+    });
 
+
+    }
+
+
+}
 
 
 
@@ -409,3 +481,5 @@ function setTimeFrame() {
       chartPeriod = "1y";
       setTimeFrame();
 })
+
+init();
