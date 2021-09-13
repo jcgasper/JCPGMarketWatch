@@ -80,11 +80,25 @@
             </div>
         </div>
 
-        <div class="column" id='cryptoInfo'>
+        <div class="columns has-text-centered is-centered" id="infoContainer">
+
+            <div id='cryptoInfo'>
         
-            <div id="cryptoTitle"></div>
-        
+                <div id="iconContainer">
+                    <img id="icon">
+                </div>
+
+                <div id="cryptoTitle"></div>
+                <div id="cryptoPrice"></div>
+
+                <div id="siteContainer">
+                    <a id="site"></a>
+                </div>
+            
+            </div>
+
         </div>
+       
 
         <section class="section is-mobile">
             <div class="column is-half is-offset-one-quarter pt-6">
@@ -102,6 +116,10 @@
 
 
     </section>
+
+    <div class="columns is-centered " id="gainsContainer">
+        <div id="gainsTimeFrame" class="is-centered"></div><div id="cryptoGains"></div>
+    </div>
 
     <div class="column is-mobile chartStyle" id="chartContainer">
         <canvas id="myChart"></canvas>
