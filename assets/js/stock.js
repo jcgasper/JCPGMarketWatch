@@ -32,7 +32,7 @@ let dateTo;
       stockTicker = submitElement.value;
       
 
-      fetch('http://api.marketstack.com/v1/tickers?access_key='+apiKey+'&symbols='+input+'', {
+      fetch('https://api.marketstack.com/v1/tickers?access_key='+apiKey+'&symbols='+input+'', {
     // The browser fetches the resource from the remote server without first looking in the cache.
     // The browser will then update the cache with the downloaded resource.
     cache: 'reload',
@@ -65,7 +65,7 @@ let dateTo;
   
 
 
-fetch('http://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+'', {
+fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+'', {
     // The browser fetches the resource from the remote server without first looking in the cache.
     // The browser will then update the cache with the downloaded resource.
     cache: 'reload',
@@ -299,7 +299,7 @@ function setTimeFrame() {
   
   
   
-  fetch('http://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=100',)
+  fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=100',)
   .then(function (response) {
       if (response.ok) {
           console.log("*********")
