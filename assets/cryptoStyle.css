@@ -9,5 +9,47 @@
 }
 
 #cryptoInfo {
-    text-align: center;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    /* text-align: center; */
+}
+
+#cryptoIcon {
+    max-width: 50%;
+    height: auto;
+}
+
+#cryptoGains {
+    padding: 10px;
+}
+
+.show {
+    background-color: white;
+}
+
+#gainsTimeFrame {
+    font-size: x-large;
+    padding: 2px;
+    margin: 2px;
+}
+
+.increase {
+    color: white;
+    background-color: green;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 2px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.decrease {
+    color: white;
+    background-color: red;
+    border-radius: 10%;
+    padding: 2px;
+    margin: 2px;
+    font-size: large;
+    font-weight: bolder;
 }
