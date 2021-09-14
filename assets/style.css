@@ -28,7 +28,7 @@ p {
 }
 
 .stockbg {
-    background-image: url("photos/stock-market.png");
+    background-image: url("./Photos/stock-market.png");
     background-color: #002D62;
     background-size: cover;
 }
