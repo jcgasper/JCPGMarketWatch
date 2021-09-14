@@ -45,8 +45,8 @@ let dateTo;
         response.json().then(function (data) {
             console.log(data);
             
-            
-            stockTitleEl.textContent = data.data[0].name;
+            console.log(data.data[0].stock_exchange.name);
+            stockTitleEl.textContent = data.data[0].name + " - " + data.data[0].stock_exchange.name;
         
           
           });
@@ -79,7 +79,7 @@ fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+
             console.log(data);
             console.log(data.data[0].adj_close);
             
-            stockTitleEl.textContent = stockTitleEl.textContent + " $" + data.data[0].adj_close;
+            stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + data.data[0].adj_close;
         
           
           });
@@ -157,7 +157,7 @@ function generateGains(chart, chartPeriod) {
   }
 
   let gains = chart[chart.length - 1] / chart[0];
-  console.log(gains);
+  
   gains = (gains * 100) - 100;
   let shortenedGains = gains.toFixed(2);
 
@@ -272,9 +272,9 @@ function getDateRange(chartPeriod) {
       day = "0"+day;
     } 
     var currentDate = new Date();
-    console.log("The current Date="+currentDate);
+    
     var weekAgoDate=new Date(currentDate.setDate(currentDate.getDate() - 7));
-    console.log("The One week ago date="+weekAgoDate);
+    
     let preMonth = weekAgoDate.getMonth() +1;
     preDay = weekAgoDate.getDate();
 
@@ -290,7 +290,7 @@ function getDateRange(chartPeriod) {
     
     dateFrom = fullYear + "-" + preMonth + "-" + preDay;
     dateTo = fullYear + "-" + month + "-" + day;
-    console.log(dateFrom + "/" + dateTo)
+    
   
   }
   
@@ -298,13 +298,13 @@ function getDateRange(chartPeriod) {
     fullYear = date.getFullYear();
     month = date.getMonth() + 1;
     let weekDay = date.getDay();
-    console.log("day of week " + weekDay);
+    
     let preDay;
     if (month<10) {
       month = "0"+month;
     }
-    day = date.getDate()-1;
-    preDay = day-2;
+    day = date.getDate();
+    preDay = day-1;
 
     if (day<10) {
       day = "0"+day;
@@ -331,24 +331,22 @@ function setTimeFrame() {
   
   getDateRange(chartPeriod);
 
-  console.log("date check " + dateFrom + "/" + dateTo);
+  
 
   //get proper dates for time period
   
   
   
-  fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=100',)
+  fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=1000',)
   .then(function (response) {
       if (response.ok) {
-          console.log("*********")
-          console.log(response);
+          
           response.json().then(function (data) {
-              console.log(data);
+              
 
               stockPricesArray = [];
 
-              console.log(data.data[0].adj_close)
-              console.log(data.data.length);
+              
 
               for (let i = 0; i <data.data.length; i++) {
 
@@ -361,7 +359,7 @@ function setTimeFrame() {
 
           });
       } else {
-          console.log('response', response);
+          
           alert('Error: ' + response.statusText);
 
       }
@@ -374,7 +372,7 @@ function setTimeFrame() {
 
 function init() {
       if (localStorage.getItem("input") != null) {
-        console.log(localStorage.getItem("input"));
+        
       stockTicker = localStorage.getItem("input");
         input = stockTicker;
       fetch('https://api.marketstack.com/v1/tickers?access_key='+apiKey+'&symbols='+input+'', {
@@ -390,7 +388,7 @@ function init() {
                 console.log(data);
                 
                 
-                stockTitleEl.textContent = data.data[0].name;
+                stockTitleEl.textContent = data.data[0].name + " - " + data.data[0].stock_exchange.name;
             
               
               });
@@ -423,7 +421,7 @@ function init() {
                 console.log(data);
                 console.log(data.data[0].adj_close);
                 
-                stockTitleEl.textContent = stockTitleEl.textContent + " $" + data.data[0].adj_close;
+                stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + data.data[0].adj_close;
             
               
               });
