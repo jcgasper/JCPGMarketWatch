@@ -24,4 +24,5 @@
 - Christian Tanicala
 
 ## Links
--
+-https://jcgasper.github.io/JCPGMarketWatch/stockticker.html (Webpage)
+-https://github.com/jcgasper/JCPGMarketWatch (Repoisitory)
