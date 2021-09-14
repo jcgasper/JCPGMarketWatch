@@ -14,64 +14,88 @@ let threeMonthEl = document.getElementById("threeMonth");
 let oneYearEl = document.getElementById("oneYear");
 
 function searchCrypto(key) {
-
     if (key.keyCode == 13) {
-
-        cryptoSearchText = document.getElementById("cryptoSearch").value;
-        cryptoSearchText = cryptoSearchText.toLowerCase();
-
-        fetch("https://api.coinstats.app/public/v1/coins/" + cryptoSearchText + "?currency=USD", requestOptions)
-            .then(function (response) {
-                if (response.ok) {
-                    console.log(response);
-                    response.json().then(function (data) {
-                        console.log(data);
-
-                        clearChart();
-
-                        let shortenedPrice = data.coin.price.toFixed(2);
-
-                        document.getElementById("cryptoInfo").classList.add("show", "card")
-
-                        let imgContEl = document.getElementById("iconContainer");
-                        let imgEl = document.getElementById("icon");
-                        let createImg = document.createElement("img");
-                        imgEl.parentNode.removeChild(imgEl);
-                        imgContEl.appendChild(createImg);
-                        createImg.id = "icon"
-                        createImg.src = data.coin.icon;
-
-                        document.getElementById("cryptoTitle").textContent = data.coin.name + " [" + data.coin.symbol + "]";
-
-                        document.getElementById("cryptoPrice").textContent ="$" + shortenedPrice;
-
-                        let siteContEl = document.getElementById("siteContainer");
-                        let siteEl = document.getElementById("site");
-                        let createSite = document.createElement("a");
-                        siteEl.parentNode.removeChild(siteEl);
-                        siteContEl.appendChild(createSite);
-                        createSite.id = "site"
-                        createSite.href = data.coin.websiteUrl;
-                        createSite.target = "_blank"
-                        document.getElementById("site").textContent = data.coin.websiteUrl;
-
-                    });
-                } else {
-                    console.log('response', response);
-                    alert('Error: ' + response.statusText);
-
-                }
-            })
-            .catch(function (error) {
-                alert('Unable to connect');
-            });
+        generateCrypto();
     }
 }
 
+function generateCrypto(searchHistory) {
 
+    if (searchHistory){
+        cryptoSearchText = searchHistory;
+    } else {
+        cryptoSearchText = document.getElementById("cryptoSearch").value;
+        cryptoSearchText = cryptoSearchText.toLowerCase();
+    }
 
+    fetch("https://api.coinstats.app/public/v1/coins/" + cryptoSearchText + "?currency=USD", requestOptions)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
+
+                    if (data.coin === undefined || data.coin === null){
+                        let searchHistory = localStorage.getItem("cryptoSearched")
+                        if (searchHistory){
+                            generateCrypto(searchHistory);
+                        } else {
+                            return;
+                        }
+                        return;
+                    }
+
+                    clearChart();
+
+                    localStorage.setItem("cryptoSearched", cryptoSearchText);
+
+                    let shortenedPrice = data.coin.price.toFixed(2);
+
+                    document.getElementById("cryptoInfo").classList.add("show", "card")
+
+                    let imgContEl = document.getElementById("iconContainer");
+                    let imgEl = document.getElementById("icon");
+                    let createImg = document.createElement("img");
+                    imgEl.parentNode.removeChild(imgEl);
+                    imgContEl.appendChild(createImg);
+                    createImg.id = "icon"
+                    createImg.src = data.coin.icon;
+
+                    document.getElementById("cryptoTitle").textContent = data.coin.name + " [" + data.coin.symbol + "]";
+
+                    document.getElementById("cryptoPrice").textContent ="$" + shortenedPrice;
+
+                    let siteContEl = document.getElementById("siteContainer");
+                    let siteEl = document.getElementById("site");
+                    let createSite = document.createElement("a");
+                    siteEl.parentNode.removeChild(siteEl);
+                    siteContEl.appendChild(createSite);
+                    createSite.id = "site"
+                    createSite.href = data.coin.websiteUrl;
+                    createSite.target = "_blank"
+                    document.getElementById("site").textContent = data.coin.websiteUrl;
+
+                });
+            } else {
+                console.log('response', response);
+                alert('Error: ' + response.statusText);
+
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect');
+        });
+}
 
 function setTimeFrame() {
+
+    let searchHistory = localStorage.getItem("cryptoSearched")
+    if (searchHistory){
+    
+    } else {
+        return;
+    }
+
     console.log(chartPeriod, cryptoSearchText);
     fetch("https://api.coinstats.app/public/v1/charts?period="+ chartPeriod + "&coinId=" + cryptoSearchText, requestOptions)
     .then(function (response) {
@@ -132,6 +156,12 @@ function generateChart(chart, chartPeriod){
 
     clearChart();
 
+    let chartLabels = [];
+    for (i=0;i<chart.length;i++){
+        chartLabels.push(i);
+
+    }
+
     document.getElementById("gainsContainer").classList.add("show");
 
     let myChart = document.getElementById('myChart').getContext("2d");
@@ -139,7 +169,7 @@ function generateChart(chart, chartPeriod){
     let cryptoChart = new Chart(myChart, {
         type: "line", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
         data: {
-            labels: chart,
+            labels: chartLabels,
             datasets: [{
                 label: "Price",
                 data: chart,
@@ -239,3 +269,14 @@ oneYearEl.addEventListener("click", function (event){
     chartPeriod = "1y";
     setTimeFrame();
 })
+
+window.addEventListener("DOMContentLoaded", searchHistory)
+
+function searchHistory(){
+    let searchHistory = localStorage.getItem("cryptoSearched")
+    if (searchHistory){
+        generateCrypto(searchHistory);
+    } else {
+        return;
+    }
+}
