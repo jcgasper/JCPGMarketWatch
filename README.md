@@ -1,17 +1,27 @@
 <<<<<<< HEAD
-# Team-4-project1
+# JCPGMarketWatch
 
-TEST JACOB
-=======
-<<<<<<< HEAD
-this is a push request from phon
-=======
-<<<<<<< HEAD
-# Team-4-project1
+## Description
+- JCPGMarketWatch is a collaborative project aiming to create one singular website for the average investor to be able to monitor the current market conditions of stocks and cryptocurrency
 
-## Christian Edit
-=======
-this is a push request from phon
->>>>>>> origin
->>>>>>> main
->>>>>>> origin
+## Screenshots
+- ![](assets/Photos/Aboutme.PNG)
+- ![](assets/Photos/Crypto.PNG)
+- ![](assets/Photos/Home.PNG)
+- ![](assets/Photos/Stocks.PNG)
+
+## Libraries, APIs & Frameworks
+- Bulma (CSS)
+- ChartJS
+- Fontawesome (CSS)
+- CoinStats (API)
+- MarketStack
+
+## Contributors
+- Jacob Gasper
+- Greg Riveroll
+- Phon Phongsavath
+- Christian Tanicala
+
+## Links
+-
