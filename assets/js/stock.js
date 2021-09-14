@@ -17,7 +17,7 @@ let dateFrom;
 let dateTo;
 
 //  75c3119c360260691b306d8841a20c7d  -marketstack api
-
+//<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
 //https://https://api.finage.co.uk/last/stock/AAPL?apikey=API_KEY35E1M21URYLC8TXVHSMPMENWJR5D1LCJ
 
 //needs https:/ to work 
