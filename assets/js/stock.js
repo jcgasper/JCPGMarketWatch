@@ -66,7 +66,7 @@ let dateTo;
   
 
 
-fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+'', {
+fetch('https://api.marketstack.com/v1/intraday?access_key='+apiKey+'&symbols='+input+'', {
     // The browser fetches the resource from the remote server without first looking in the cache.
     // The browser will then update the cache with the downloaded resource.
     cache: 'reload',
@@ -77,10 +77,10 @@ fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+
         
         response.json().then(function (data) {
             console.log(data);
-            console.log(data.data[0].adj_close);
+           
             
-            stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + data.data[0].adj_close;
-        
+            priceInsert = priceInsert.toFixed(2);
+            stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + priceInsert;
           
           });
     
@@ -313,7 +313,7 @@ function getDateRange(chartPeriod) {
     if (preDay<10) {
       preDay = "0"+preDay;
     }
-
+    console.log(dateFrom + " - " + dateTo);
     dateFrom = fullYear + "-" + month + "-" + preDay;
     dateTo = fullYear + "-" + month + "-" + day;
 
@@ -331,27 +331,37 @@ function setTimeFrame() {
   
   getDateRange(chartPeriod);
 
-  
+  let apiCode;
+
+  if (chartPeriod == "24h") {
+  apiCode = "intraday"
+  }
+  else {
+    apiCode = "eod";
+  }
 
   //get proper dates for time period
   
   
   
-  fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=1000',)
+  fetch('https://api.marketstack.com/v1/'+apiCode+'?access_key='+apiKey+'&symbols='+stockTicker+'&date_from='+dateFrom+'&date_to='+dateTo+'&limit=1000',)
   .then(function (response) {
       if (response.ok) {
           
           response.json().then(function (data) {
-              
-
+              console.log("24hr data");
+              console.log(data);
               stockPricesArray = [];
 
               
 
               for (let i = 0; i <data.data.length; i++) {
-
+                if (chartPeriod == "24h") {
+                  stockPricesArray.push(data.data[i].high);
+                }
+                else {
                 stockPricesArray.push(data.data[i].adj_close);
-
+                }
               }
              
              
@@ -408,7 +418,7 @@ function init() {
       
     
     
-    fetch('https://api.marketstack.com/v1/eod?access_key='+apiKey+'&symbols='+input+'', {
+    fetch('https://api.marketstack.com/v1/intraday?access_key='+apiKey+'&symbols='+input+'', {
         // The browser fetches the resource from the remote server without first looking in the cache.
         // The browser will then update the cache with the downloaded resource.
         cache: 'reload',
@@ -420,8 +430,9 @@ function init() {
             response.json().then(function (data) {
                 console.log(data);
                 console.log(data.data[0].adj_close);
-                
-                stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + data.data[0].adj_close;
+                let priceInsert = data.data[0].high;
+                priceInsert = priceInsert.toFixed(2);
+                stockTitleEl.textContent = stockTitleEl.textContent  + " - Current/Closing Price: $" + priceInsert;
             
               
               });
