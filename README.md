@@ -26,3 +26,4 @@
 ## Links
 - https://jcgasper.github.io/JCPGMarketWatch/stockticker.html (Webpage)
 - https://github.com/jcgasper/JCPGMarketWatch (Repoisitory)
+- https://docs.google.com/presentation/d/1k6W_AVwROXrGcO76lS0CqIvkYVeltpnJXNQI-CnaPgY/edit?usp=sharing (Slide Deck)
